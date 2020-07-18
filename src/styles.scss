@@ -5,4 +5,9 @@
 @include nb-install() {
   @include nb-theme-global();
 };
+.pull-right {
+  display: flex;
+  align-items: right;
+  width: auto;
+}
 /* You can add global styles to this file, and also import other style files */

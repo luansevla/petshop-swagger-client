@@ -3,6 +3,10 @@
         <nb-icon icon="loader-outline"></nb-icon>
         &nbsp; Petshop Swagger
         v<span>{{ version }}</span>
+        <button end nbButton status="basic" size="medium" nbPopover="log-out" nbPopoverTrigger="hover" nbPopoverPlacement="bottom">
+            <nb-icon icon="log-out"></nb-icon>
+        </button>
+
     </nb-layout-header>
     <nb-layout-column>
         <router-outlet></router-outlet>
