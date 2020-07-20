@@ -29,19 +29,22 @@ export class AppComponent {
     },
     {
       title: 'Pets',
+      link: 'pet',
       icon: 'award-outline',
     },
     {
       title: 'Store',
+      link:   'shop',
       icon: { icon: 'shopping-cart-outline', pack: 'eva' },
     },
     {
       title: 'User',
+      link:   'user',
       icon: { icon: 'person-outline', pack: 'eva' },
     },
-    {
-      title: 'Logout',
-      icon: 'unlock-outline',
-    },
+    // {
+    //   title: 'Logout',
+    //   icon: 'unlock-outline',
+    // },
   ];
 }

@@ -19,7 +19,11 @@ const routes: Routes = [
     loadChildren: () => import('./feature/pet/pet.module').then(m => m.PetModule)
   },
   {
-    path: 'store',
+    path: 'shop',
+    loadChildren: () => import('./feature/store/store.module').then(m => m.StoreModule)
+  },
+  {
+    path: 'buy-now',
     loadChildren: () => import('./feature/store/store.module').then(m => m.StoreModule)
   },
   {
