@@ -1,13 +1,18 @@
 <nb-layout>
     <nb-layout-header>
-        <nb-icon icon="loader-outline"></nb-icon>
-        &nbsp; Petshop Swagger
-        v<span>{{ version }}</span>
-        <button end nbButton status="basic" size="medium" nbPopover="log-out" nbPopoverTrigger="hover" nbPopoverPlacement="bottom">
-            <nb-icon icon="log-out"></nb-icon>
+        <button nbButton size="small" (click)="toggle()" style="margin-right: 20px;">
+            <nb-icon icon="menu-outline"></nb-icon>
         </button>
-
+        &nbsp; <b>Petshop Swagger &nbsp;
+            <nb-badge [text]="version" position="top left"></nb-badge>
+        </b>
     </nb-layout-header>
+
+
+    <nb-sidebar tag="left" state="collapsed" style="transition: width 0.5s;">
+            <nb-menu [items]="items" style="transition: width 1s; animation-delay: 2s;" >
+            </nb-menu>
+    </nb-sidebar>
     <nb-layout-column>
         <router-outlet></router-outlet>
     </nb-layout-column>

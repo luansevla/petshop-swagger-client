@@ -1,3 +1,15 @@
 :host nb-layout-header button:last-child {
     margin-left: auto;
 }
+:host .position-left {
+    left: auto;
+}
+:host .position-top {
+    top: auto;
+}
+.menu-sidebar ::ng-deep .main-container.main-container-fixed {
+    width: 10rem;
+}
+.expanded {
+    width: 10rem;
+}
