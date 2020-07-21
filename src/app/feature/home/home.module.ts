@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { NbSidebarModule, NbMenuModule } from '@nebular/theme';
+import { NbSidebarModule, NbMenuModule, NbCardModule, NbButtonModule } from '@nebular/theme';
 
 @NgModule({
     declarations: [
@@ -12,7 +12,9 @@ import { NbSidebarModule, NbMenuModule } from '@nebular/theme';
         CommonModule,
         HomeRoutingModule,
         NbSidebarModule,
-        NbMenuModule
+        NbMenuModule,
+        NbCardModule,
+        NbButtonModule
     ],
     providers: [],
 })

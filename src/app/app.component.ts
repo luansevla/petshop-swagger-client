@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { version } from './../../package.json';
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
@@ -11,35 +11,43 @@ import { HomeComponent } from './feature/home/home.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public version: string = version
   title = 'app';
 
   constructor(private sidebarService: NbSidebarService) { }
 
+  ngOnInit(){
+    this.toggle()
+  }
+
   toggle() {
-    this.sidebarService.toggle(false, 'left');
+    this.sidebarService.toggle();
   }
 
   items: NbMenuItem[] = [
     {
       title: 'Home',
       link: 'home',
+      skipLocationChange: true,
       icon: 'home-outline',
     },
     {
       title: 'Pets',
       link: 'pet',
+      skipLocationChange: true,
       icon: 'award-outline',
     },
     {
       title: 'Store',
-      link:   'shop',
+      link: 'shop',
+      skipLocationChange: true,
       icon: { icon: 'shopping-cart-outline', pack: 'eva' },
     },
     {
       title: 'User',
-      link:   'user',
+      link: 'user',
+      skipLocationChange: true,
       icon: { icon: 'person-outline', pack: 'eva' },
     },
     // {
@@ -47,4 +55,5 @@ export class AppComponent {
     //   icon: 'unlock-outline',
     // },
   ];
+
 }

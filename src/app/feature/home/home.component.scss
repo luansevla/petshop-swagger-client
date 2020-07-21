@@ -1,0 +1,46 @@
+.nb-theme-default nb-card-body {
+    max-width: 100%;
+    background-color: violet;
+    background-image: url('./../../../assets/img/cao-bonito-vista-frontal-com-a-cabeca-levantada.jpg');
+}
+
+.col-md-12 {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: block
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+:host {
+    display: block;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .card-header {
+      text-align: center;
+  }
+  .card-row {
+    display: flex;
+  }
+  
+  .card-col {
+    display: grid;
+    padding: 15px;
+    grid-template-columns: repeat(auto-fill,minmax(300.66px,1fr));
+    max-width: 100%;
+  }
