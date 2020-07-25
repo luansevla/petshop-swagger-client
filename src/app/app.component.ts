@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, ViewChild } from '@angular/core';
 import { version } from './../../package.json';
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
 import { HomeModule } from './feature/home/home.module';
 import { HomeComponent } from './feature/home/home.component';
+import { MatSidenav } from '@angular/material/sidenav';
+import { NbSidebarService } from '@nebular/theme';
+import { RouterModule, RouterLinkActive, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,45 +16,37 @@ export class AppComponent implements OnInit {
   public version: string = version
   title = 'app';
 
-  constructor(private sidebarService: NbSidebarService) { }
+  constructor(
+    private sidebarService: NbSidebarService,
+    private router: Router
 
-  ngOnInit(){
-    this.toggle()
+    ) { }
+
+  ngOnInit() {
+    this.collapse()
+  }
+
+  changeComponent(route: String) {
+    this.router.navigate(['/', route]);
+    this.sidenav.close();
   }
 
   toggle() {
     this.sidebarService.toggle();
   }
 
-  items: NbMenuItem[] = [
-    {
-      title: 'Home',
-      link: 'home',
-      skipLocationChange: true,
-      icon: 'home-outline',
-    },
-    {
-      title: 'Pets',
-      link: 'pet',
-      skipLocationChange: true,
-      icon: 'award-outline',
-    },
-    {
-      title: 'Store',
-      link: 'shop',
-      skipLocationChange: true,
-      icon: { icon: 'shopping-cart-outline', pack: 'eva' },
-    },
-    {
-      title: 'User',
-      link: 'user',
-      skipLocationChange: true,
-      icon: { icon: 'person-outline', pack: 'eva' },
-    },
-    // {
-    //   title: 'Logout',
-    //   icon: 'unlock-outline',
-    // },
-  ];
+  collapse() {
+    this.sidebarService.collapse()
+  }
 
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+
+  
 }

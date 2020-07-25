@@ -1,15 +1,7 @@
-:host nb-layout-header button:last-child {
-    margin-left: auto;
+.example-spacer {
+    flex: 1 1 auto;
 }
-:host .position-left {
-    left: auto;
+example-container {
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
-:host .position-top {
-    top: auto;
-}
-.menu-sidebar ::ng-deep .main-container.main-container-fixed {
-    width: 10rem;
-}
-.expanded {
-    width: 10rem;
-}
+

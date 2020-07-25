@@ -1,23 +1,50 @@
-<nb-layout>
-    <nb-layout-header fixed>
-        <button nbButton size="small" (click)="toggle()" style="margin-right: 20px;">
-            <nb-icon icon="menu-outline"></nb-icon>
-        </button>
-        <nb-icon icon="heart-outline" status="danger"></nb-icon>
-        &nbsp; <b>Petshop Swagger &nbsp;
-            <nb-badge [text]="version" position="top left"></nb-badge>
-        </b>
-    </nb-layout-header>
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <mat-toolbar>
+            <span>Swagger Petshop</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon" (click)="sidenav.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item (click)="changeComponent('home')">
+              <mat-icon mat-list-icon>home</mat-icon>
+              <a (click)="changeComponent('home')"
+              routerLinkActive="router-link-active" mat-line>Início</a>
+            </mat-list-item>
+            <mat-list-item (click)="changeComponent('pet')">
+              <mat-icon mat-list-icon>pets</mat-icon>
+              <a (click)="changeComponent('pet')"
+              routerLinkActive="router-link-active" mat-line>Vitrine</a>
+            </mat-list-item>
+            <mat-list-item (click)="changeComponent('shop')">
+              <mat-icon mat-list-icon>shopping_cart</mat-icon>
+              <a (click)="changeComponent('shop')"
+              routerLinkActive="router-link-active" mat-line>Loja</a>
+            </mat-list-item>
+            <mat-list-item (click)="changeComponent('user')">
+              <mat-icon mat-list-icon>folder_shared</mat-icon>
+              <a (click)="changeComponent('user')"
+              routerLinkActive="router-link-active" mat-line>Gestão</a>
+            </mat-list-item>
+          </mat-nav-list>
+    </mat-sidenav>
 
-
-    <nb-sidebar fixed state="collapsed" style="transition: width 0.2s;">
-            <nb-menu [items]="items" style="transition: width 1s; animation-delay: 2s;">
-            </nb-menu>
-    </nb-sidebar>
-    <nb-layout-column>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Swagger Petshop</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+        </mat-toolbar>
         <router-outlet></router-outlet>
-    </nb-layout-column>
-    <nb-layout-footer>
-        <app-footer></app-footer>
-    </nb-layout-footer>
-</nb-layout>
+    </mat-sidenav-content>
+</mat-sidenav-container>
