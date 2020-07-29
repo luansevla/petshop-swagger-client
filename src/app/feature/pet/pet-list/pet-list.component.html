@@ -1,1 +1,36 @@
-<p>pet works!</p>
+<mat-card>
+    <mat-card-header fixed>
+        <mat-card-title>Lista de Cães</mat-card-title>
+        <mat-card-subtitle>Disponíveis</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="applyFilter($event)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="details">
+                <th mat-header-cell *matHeaderCellDef> Detalhe </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="icone menu vertical">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams,
          HttpResponse, HttpEvent }                           from '@angular/common/http';
 import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
-import { Observable }                                        from 'rxjs/Observable';
+import { Observable }                                        from 'rxjs';
 
 import { ApiResponse } from '../model/apiResponse';
 import { Pet } from '../model/pet';
@@ -436,13 +436,6 @@ export class PetService {
             formParams = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
         }
 
-        if (name !== undefined) {
-            formParams = formParams.append('name', <any>name) || formParams;
-        }
-        if (status !== undefined) {
-            formParams = formParams.append('status', <any>status) || formParams;
-        }
-
         return this.httpClient.post<any>(`${this.basePath}/pet/${encodeURIComponent(String(petId))}`,
             convertFormParamsToString ? formParams.toString() : formParams,
             {
@@ -510,13 +503,6 @@ export class PetService {
             formParams = new FormData();
         } else {
             formParams = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        }
-
-        if (additionalMetadata !== undefined) {
-            formParams = formParams.append('additionalMetadata', <any>additionalMetadata) || formParams;
-        }
-        if (file !== undefined) {
-            formParams = formParams.append('file', <any>file) || formParams;
         }
 
         return this.httpClient.post<ApiResponse>(`${this.basePath}/pet/${encodeURIComponent(String(petId))}/uploadImage`,
